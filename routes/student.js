@@ -48,7 +48,13 @@ router.delete("/:id", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
   const { id } = req.params;
-  const updatedstudent = req.body;
+  const mentorid = req.body.id;
+  const isuserExist = await getMentorByID(mentorid);
+  if (isuserExist) {
+    res.status(400).send({ message: "Userid already taken" });
+    return;
+  }else{
+     const updatedstudent = req.body;
   await EditStudent(id, updatedstudent);
   try {
     res
@@ -57,6 +63,8 @@ router.put("/:id", async (req, res) => {
   } catch {
     res.status(404).json({ message: "failed to update" });
   }
+  }
+ 
 });
 
 export const studentRouter = router;
