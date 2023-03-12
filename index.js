@@ -31,7 +31,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/", (req, res) => {
-  res.send("hi there");
+  res.send("hi there welcome to student-mentor app");
 });
 
 app.use("/mentor", mentorRouter);
