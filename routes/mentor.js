@@ -14,7 +14,7 @@ router.post("/", async (req, res) => {
       return;
     }else{
       await createMentor(name,id,gender, experience);
-    res.send({ status: "ok" });
+    res.send({ message: "ok" });
     }
 
     
