@@ -12,9 +12,12 @@ router.post("/", async (req, res) => {
     if (isuserExist) {
       res.status(400).send({ message: "Userid already taken" });
       return;
-    }
-    await createMentor(name,id,gender, experience);
+    }else{
+      await createMentor(name,id,gender, experience);
     res.send({ status: "ok" });
+    }
+
+    
    }
    catch(err){
     console.log(err);
