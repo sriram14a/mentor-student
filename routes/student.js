@@ -48,8 +48,8 @@ router.delete("/:id", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
   const { id } = req.params;
-  const mentorid = req.body.id;
-  const isuserExist = await getMentorByID(mentorid);
+  const studentid = req.body.id;
+  const isuserExist = await getStudentbyId(studentid);
   if (isuserExist) {
     res.status(400).send({ message: "Userid already taken" });
     return;
